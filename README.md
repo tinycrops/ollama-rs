@@ -249,7 +249,7 @@ use ollama_rs::models::ModelOptions;
 
 let mut history = vec![];
 
-let mut coordinator = Coordinator::new(ollama, "qwen2.5:32b".to_string(), history)
+let mut coordinator = Coordinator::new(ollama, "qwen3:4b".to_string(), history)
     .options(ModelOptions::default().num_ctx(16384))
     .add_tool(DDGSearcher::new())
     .add_tool(Scraper {})
@@ -289,7 +289,7 @@ For a more detailed example, see the [function call example](https://github.com/
 ### Completion Generation (With Thinking)
 
 ```rust
-let model = "qwen3:latest".to_string();
+let model = "qwen3:4b".to_string();
 let prompt = "Why is the sky blue?".to_string();
 
 let res = ollama.generate(GenerationRequest::new(model, prompt).think(true)).await;
